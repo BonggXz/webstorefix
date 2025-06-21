@@ -13,7 +13,7 @@ export default function FunnelChartComp() {
       <FunnelChart width={400} height={250}>
         <Tooltip />
         <Funnel dataKey="value" data={data} isAnimationActive>
-          <LabelList position="right" fill="#000" stroke="none" dataKey="name" />
+          <LabelList position="right" fill="currentColor" stroke="none" dataKey="name" className="text-darkBg" />
         </Funnel>
       </FunnelChart>
     </div>

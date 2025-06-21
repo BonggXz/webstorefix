@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { XMarkIcon } from "@heroicons/react/24/solid";
 
 export default function InvoiceModal({ invoice }) {
   const [open, setOpen] = useState(true);
@@ -13,7 +14,9 @@ export default function InvoiceModal({ invoice }) {
         className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
         <motion.div initial={{ scale: 0.9 }} animate={{ scale: 1 }} exit={{ scale: 0.9 }}
           className="glass p-8 rounded-2xl shadow-xl relative w-[420px]">
-          <button onClick={() => setOpen(false)} className="absolute top-3 right-4 text-2xl">×</button>
+          <button onClick={() => setOpen(false)} className="absolute top-3 right-4">
+            <XMarkIcon className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+          </button>
           <h3 className="font-bold text-lg mb-2">Invoice Detail</h3>
           <div>ID: {invoice._id}</div>
           <div>Produk: {invoice.product?.name}</div>

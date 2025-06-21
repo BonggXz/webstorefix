@@ -3,8 +3,8 @@ import ReviewStars from "./ReviewStars";
 export default function ProductCard({ product, onClick }) {
   return (
     <motion.div
-      whileHover={{ scale: 1.03, boxShadow: "0 8px 32px #8ecafe22" }}
-      className="glass rounded-xl shadow-md p-4 cursor-pointer transition-all"
+      whileHover={{ scale: 1.03 }}
+      className="glass rounded-xl shadow-md p-4 cursor-pointer transition-all hover:shadow-neon"
       onClick={() => onClick && onClick(product)}
     >
       <img src={product.imageUrl} alt={product.name} className="w-full h-40 object-cover rounded-lg mb-2" />
