@@ -1,15 +1,18 @@
-const ORDERS = [
-  {
-    _id: '1',
-    product: { _id: '1', name: 'Sample Product' },
-    amount: 10000,
+import { getOrders, addOrder } from './data';
+
+export async function GET() {
+  return Response.json({ status: true, data: getOrders() });
+}
+
+export async function POST(request) {
+  const body = await request.json();
+  const newOrder = {
+    _id: Date.now().toString(),
+    product: body.product,
+    amount: body.amount,
     status: 'pending',
     createdAt: new Date().toISOString()
-  }
-];
-export async function GET() {
-  return Response.json({ status: true, data: ORDERS });
-}
-export async function POST() {
-  return Response.json({ status: false, error: 'Not implemented' }, { status: 501 });
+  };
+  addOrder(newOrder);
+  return Response.json({ status: true, data: newOrder }, { status: 201 });
 }

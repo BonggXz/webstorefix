@@ -20,6 +20,16 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Environment Variables
+
+Certain features require configuration via environment variables. To enable the live chat widget powered by Crisp, set the following variable in your environment:
+
+```bash
+NEXT_PUBLIC_CRISP_ID=<your-crisp-website-id>
+```
+
+If this variable is not provided the chat widget will be disabled.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

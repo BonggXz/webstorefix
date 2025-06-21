@@ -15,8 +15,18 @@ export default function RegisterPage() {
         body: JSON.stringify(form)
       });
       const data = await res.json();
-      if (!data.status) throw new Error(data.error || "Register gagal");
-      // Simpan JWT, redirect dsb
+      if (!data.status) {
+        // Validation errors from server may come as an object
+        if (typeof data.error === "object") {
+          const messages = Object.values(data.error).join("\n");
+          throw new Error(messages);
+        }
+        throw new Error(data.error || "Register gagal");
+      }
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+      }
+      window.location.href = "/dashboard";
     } catch (e) { setErr(e.message); }
     setLoading(false);
   };
