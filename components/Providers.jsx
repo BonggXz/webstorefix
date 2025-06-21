@@ -1,7 +1,6 @@
 "use client";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { ParallaxProvider } from "react-scroll-parallax";
-import { GoogleOAuthProvider } from "@react-oauth/google";
 import { ThemeProvider } from "./ThemeProvider";
 
 export default function Providers({ children }) {
