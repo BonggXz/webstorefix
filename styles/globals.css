@@ -4,7 +4,7 @@
 
 /* Glassmorphism Utility */
 .glass {
-  @apply bg-white/30 dark:bg-zinc-900/40 backdrop-blur-lg border border-white/20 dark:border-zinc-700/40;
+  @apply bg-gradient-to-br from-white/40 to-white/20 dark:from-zinc-800/40 dark:to-zinc-900/50 backdrop-blur border border-white/20 dark:border-zinc-700/40 rounded-lg;
 }
 
 /* Shadow Soft for Card/Btn */
