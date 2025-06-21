@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { XMarkIcon } from "@heroicons/react/24/solid";
 import QRCode from "qrcode.react";
 export default function QrisModal({ open, amount, orderId, onClose }) {
   const [qris, setQris] = useState(""); const [loading, setLoading] = useState(true);
@@ -18,7 +19,9 @@ export default function QrisModal({ open, amount, orderId, onClose }) {
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/60">
       <div className="glass p-8 rounded-2xl shadow-xl relative w-96">
         {loading ? <div>Memuat QRIS...</div> : <QRCode value={qris} size={180} />}
-        <button onClick={onClose} className="absolute top-2 right-4 text-xl">×</button>
+        <button onClick={onClose} className="absolute top-2 right-4">
+          <XMarkIcon className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+        </button>
       </div>
     </div>
   );
