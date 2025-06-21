@@ -13,13 +13,13 @@ export default function AnimatedTable({ data = [], columns }) {
         <tbody>
           {data.length === 0 ? (
             <tr>
-              <td colSpan={columns?.length || 1} className="text-center py-10 text-gray-500">Data kosong</td>
+              <td colSpan={columns?.length || 1} className="text-center py-10 text-muted">Data kosong</td>
             </tr>
           ) : data.map((row, idx) => (
             <motion.tr
               key={idx}
-              whileHover={{ scale: 1.02, backgroundColor: "#f0f4ff" }}
-              className="transition-all"
+              whileHover={{ scale: 1.02 }}
+              className="transition-all hover:bg-purple/10"
             >
               {columns.map((col, i) => (
                 <td key={i} className="px-4 py-2">{col.render ? col.render(row) : row[col.key]}</td>

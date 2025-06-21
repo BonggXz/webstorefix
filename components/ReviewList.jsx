@@ -31,7 +31,7 @@ export default function ReviewList({ productId }) {
         {reviews.map((r, i) => (
           <div key={i} className="border-b pb-2">
             <ReviewStars rating={r.rating} />
-            <div className="text-xs text-gray-500">{r.user?.name}</div>
+            <div className="text-xs text-muted">{r.user?.name}</div>
             <div>{r.comment}</div>
           </div>
         ))}

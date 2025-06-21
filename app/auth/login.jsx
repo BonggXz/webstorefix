@@ -50,7 +50,7 @@ export default function LoginPage() {
             required 
           />
           {err && (
-            <motion.div animate={{ scale: [0.8, 1], color: "#f43f5e" }} className="text-sm text-red-500">{err}</motion.div>
+            <motion.div animate={{ scale: [0.8, 1] }} className="text-sm text-red-500">{err}</motion.div>
           )}
           <motion.button 
             whileHover={{ scale: 1.02 }} 
