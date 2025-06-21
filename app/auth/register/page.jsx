@@ -37,7 +37,11 @@ export default function RegisterPage() {
       <GlassCard className="w-full max-w-md space-y-8">
         <h2 className="text-2xl font-bold text-center mb-4">Buat Akun FuturaShop</h2>
         <form className="space-y-4" onSubmit={handleRegister}>
+          <label htmlFor="register-name" className="sr-only">
+            Nama
+          </label>
           <input
+            id="register-name"
             type="text"
             className="w-full p-3 rounded-lg bg-white/60 dark:bg-zinc-900/70 border outline-blue-400 transition"
             placeholder="Nama"
@@ -45,7 +49,11 @@ export default function RegisterPage() {
             onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
             required
           />
+          <label htmlFor="register-email" className="sr-only">
+            Email
+          </label>
           <input
+            id="register-email"
             type="email"
             className="w-full p-3 rounded-lg bg-white/60 dark:bg-zinc-900/70 border outline-blue-400 transition"
             placeholder="Email"
@@ -53,7 +61,11 @@ export default function RegisterPage() {
             onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
             required
           />
+          <label htmlFor="register-password" className="sr-only">
+            Password
+          </label>
           <input
+            id="register-password"
             type="password"
             className="w-full p-3 rounded-lg bg-white/60 dark:bg-zinc-900/70 border outline-blue-400 transition"
             placeholder="Password"
