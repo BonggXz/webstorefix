@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { ThemeContext } from "@/components/ThemeProvider";
-export default function useTheme() {
-  return useContext(ThemeContext);
-}
+// Re-export the `useTheme` hook from the ThemeProvider so consumers of
+// this file receive the correct context instance.
+export { useTheme as default } from "@/components/ThemeProvider";
