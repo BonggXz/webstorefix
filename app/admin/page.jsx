@@ -1,7 +1,10 @@
+"use client";
 import AdminSidebar from "@/components/AdminSidebar";
 import AnimatedChart from "@/components/AnimatedChart";
+import useAdminGuard from "@/hooks/useAdminGuard";
 
 export default function AdminDashboard() {
+  useAdminGuard();
   return (
     <div className="flex min-h-screen">
       <AdminSidebar />

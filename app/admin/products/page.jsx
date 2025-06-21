@@ -4,8 +4,10 @@ import AdminSidebar from "@/components/AdminSidebar";
 import AdminProductForm from "@/components/AdminProductForm";
 import AnimatedTable from "@/components/AnimatedTable";
 import ConfirmModal from "@/components/ConfirmModal";
+import useAdminGuard from "@/hooks/useAdminGuard";
 
 export default function AdminProducts() {
+  useAdminGuard();
   const [products, setProducts] = useState([]);
   const [editing, setEditing] = useState(null), [deleting, setDeleting] = useState(null);
 

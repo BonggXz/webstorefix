@@ -2,8 +2,10 @@
 import { useEffect, useState } from "react";
 import AdminSidebar from "@/components/AdminSidebar";
 import AdminUserTable from "@/components/AdminUserTable";
+import useAdminGuard from "@/hooks/useAdminGuard";
 
 export default function AdminUsers() {
+  useAdminGuard();
   const [users, setUsers] = useState([]);
 
   useEffect(() => {

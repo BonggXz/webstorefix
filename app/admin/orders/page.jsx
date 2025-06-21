@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import AdminSidebar from "@/components/AdminSidebar";
 import AdminOrderTable from "@/components/AdminOrderTable";
 import ConfirmModal from "@/components/ConfirmModal";
+import useAdminGuard from "@/hooks/useAdminGuard";
 
 export default function AdminOrders() {
+  useAdminGuard();
   const [orders, setOrders] = useState([]);
   const [deleting, setDeleting] = useState(null);
 
