@@ -1,9 +1,17 @@
+import { findOrder, removeOrder } from '../data';
+
 export async function GET(request, { params }) {
-  if (params.id === '1') {
-    return Response.json({ status: true, data: { _id: '1', product: { name: 'Sample Product' }, amount: 10000, status: 'pending' } });
+  const order = findOrder(params.id);
+  if (!order) {
+    return Response.json({ status: false, error: 'Order not found' }, { status: 404 });
   }
-  return Response.json({ status: false, error: 'Not implemented' }, { status: 501 });
+  return Response.json({ status: true, data: order });
 }
-export async function DELETE() {
-  return Response.json({ status: false, error: 'Not implemented' }, { status: 501 });
+
+export async function DELETE(request, { params }) {
+  const ok = removeOrder(params.id);
+  if (!ok) {
+    return Response.json({ status: false, error: 'Order not found' }, { status: 404 });
+  }
+  return Response.json({ status: true });
 }
