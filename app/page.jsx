@@ -5,15 +5,15 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen flex flex-col">
+    <main className="relative flex flex-col min-h-screen">
       <ParallaxBackground />
       <Navbar />
-      <section className="flex flex-col items-center justify-center flex-1 py-24">
+      <section className="flex flex-col items-center justify-center flex-1 py-16 md:py-24 px-6 md:px-12 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-4xl md:text-6xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-400 to-blue-400"
+          className="text-4xl md:text-6xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-400 to-blue-400 text-balance"
         >
           Produk Digital & IT/IoT Masa Depan
         </motion.h1>
@@ -21,7 +21,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-gray-700 dark:text-gray-200 text-lg max-w-2xl mb-12 text-center"
+          className="text-gray-700 dark:text-gray-200 text-lg max-w-2xl mb-12 text-center text-balance"
         >
           Belanja produk digital, layanan IT, dan solusi IoT <b>futuristik</b> dengan animasi smooth, tema modern, dan pembayaran QRIS otomatis.
         </motion.p>

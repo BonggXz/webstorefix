@@ -4,6 +4,7 @@ import GlassCard from "@/components/GlassCard";
 import { GoogleLogin } from "@react-oauth/google";
 import { motion } from "framer-motion";
 import { successAlert, errorAlert } from "@/utils/alert";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [email, setEmail] = useState(""); 
@@ -33,21 +34,29 @@ export default function LoginPage() {
       <GlassCard className="w-full max-w-md space-y-8">
         <h2 className="text-2xl font-bold text-center mb-4">Login ke FuturaShop</h2>
         <form className="space-y-6" onSubmit={handleLogin}>
+          <label htmlFor="login-email" className="sr-only">
+            Email
+          </label>
           <input
+            id="login-email"
             type="email"
             className="w-full px-4 py-3 rounded-lg bg-white/60 dark:bg-zinc-900/70 border outline-blue-400 transition"
-            placeholder="Email" 
-            value={email} 
-            onChange={e => setEmail(e.target.value)} 
-            required 
+            placeholder="Email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required
           />
+          <label htmlFor="login-password" className="sr-only">
+            Password
+          </label>
           <input
+            id="login-password"
             type="password"
             className="w-full px-4 py-3 rounded-lg bg-white/60 dark:bg-zinc-900/70 border outline-blue-400 transition"
-            placeholder="Password" 
-            value={password} 
-            onChange={e => setPassword(e.target.value)} 
-            required 
+            placeholder="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            required
           />
           <motion.button
             whileHover={{ scale: 1.02 }}
@@ -59,6 +68,12 @@ export default function LoginPage() {
             {loading ? "Loading..." : "Login"}
           </motion.button>
         </form>
+        <Link
+          href="/auth/register"
+          className="block text-center text-sm text-blue-500 dark:text-neon hover:underline"
+        >
+          Belum punya akun? Daftar
+        </Link>
         <div className="mt-6 flex flex-col gap-2">
           <GoogleLogin
             onSuccess={credentialResponse => {
