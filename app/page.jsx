@@ -1,3 +1,4 @@
+"use client";
 import Navbar from "@/components/Navbar";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import { motion } from "framer-motion";
