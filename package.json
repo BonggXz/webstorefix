@@ -21,7 +21,9 @@
     "qrcode.react": "^3.1.0",
     "recharts": "^2.8.0",
     "react-scroll-parallax": "^3.4.5",
-    "react-heatmap-grid": "^0.9.1"
+    "react-heatmap-grid": "^0.9.1",
+    "sweetalert2": "^11.10.0",
+    "@sweetalert2/theme-dark": "^5.0.15"
   },
   "devDependencies": {
     "eslint": "8.56.0",
