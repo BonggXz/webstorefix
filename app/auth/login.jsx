@@ -52,12 +52,12 @@ export default function LoginPage() {
           {err && (
             <motion.div animate={{ scale: [0.8, 1], color: "#f43f5e" }} className="text-sm text-red-500">{err}</motion.div>
           )}
-          <motion.button 
-            whileHover={{ scale: 1.02 }} 
-            whileTap={{ scale: 0.98 }} 
-            type="submit" 
-            disabled={loading} 
-            className="w-full p-3 rounded-lg bg-blue-500 text-white font-semibold mt-4"
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            type="submit"
+            disabled={loading}
+            className="btn btn-blue w-full font-semibold mt-4"
           >
             {loading ? "Loading..." : "Login"}
           </motion.button>
