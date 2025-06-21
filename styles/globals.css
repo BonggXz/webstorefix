@@ -13,11 +13,12 @@
 }
 
 .text-neon { color: #8ecafe; text-shadow: 0 0 8px #7b8fff88; }
-.input { @apply w-full p-2 rounded border focus:outline-blue-400; }
+.input { @apply w-full px-3 py-3 rounded border focus:outline-blue-400; }
 .btn { @apply px-4 py-2 rounded-lg transition duration-150; }
 .btn-blue { @apply bg-blue-500 text-white; }
 .btn-red { @apply bg-red-500 text-white; }
 .btn-green { @apply bg-green-500 text-white; }
+
 
 .badge-success { @apply bg-green-500 text-white px-2 py-0.5 rounded; }
 .badge-warning { @apply bg-yellow-500 text-white px-2 py-0.5 rounded; }

@@ -8,7 +8,7 @@ export default function AdminProductForm({ onSave, product }) {
     onSave && onSave(form);
   };
   return (
-    <form className="glass p-4 rounded-xl mb-4 flex flex-col gap-3" onSubmit={submit}>
+    <form className="glass p-6 rounded-xl mb-4 flex flex-col space-y-4" onSubmit={submit}>
       <input value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} className="input" placeholder="Nama produk" required />
       <textarea value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} className="input" placeholder="Deskripsi" />
       <input value={form.price} onChange={e => setForm(f => ({ ...f, price: e.target.value }))} className="input" type="number" placeholder="Harga" required />
