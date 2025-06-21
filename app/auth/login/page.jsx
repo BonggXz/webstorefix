@@ -3,6 +3,7 @@ import { useState } from "react";
 import GlassCard from "@/components/GlassCard";
 import { GoogleLogin } from "@react-oauth/google";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [email, setEmail] = useState(""); 
@@ -61,6 +62,12 @@ export default function LoginPage() {
             {loading ? "Loading..." : "Login"}
           </motion.button>
         </form>
+        <Link
+          href="/auth/register"
+          className="block text-center text-sm text-blue-500 dark:text-neon hover:underline"
+        >
+          Belum punya akun? Daftar
+        </Link>
         <div className="mt-6 flex flex-col gap-2">
           <GoogleLogin
             onSuccess={credentialResponse => {
