@@ -1,20 +1,30 @@
 {
   "name": "frontend",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Futuristic Digital/IT/IoT Shop Frontend",
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.3.4"
+    "next": "14.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "^3.4.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "framer-motion": "^11.0.0",
+    "@heroicons/react": "^2.0.18",
+    "@react-oauth/google": "^0.8.0",
+    "qrcode.react": "^3.1.0",
+    "recharts": "^2.8.0",
+    "react-scroll-parallax": "^3.4.5",
+    "react-heatmap-grid": "^0.9.1"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4"
+    "eslint": "8.56.0",
+    "eslint-config-next": "14.2.0"
   }
 }

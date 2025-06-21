@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Glassmorphism Utility */
+.glass {
+  @apply bg-white/30 dark:bg-zinc-900/40 backdrop-blur-lg border border-white/20 dark:border-zinc-700/40;
+}
+
+/* Shadow Soft for Card/Btn */
+.shadow-glass {
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.22);
+}
+
+.text-neon { color: #8ecafe; text-shadow: 0 0 8px #7b8fff88; }
+.input { @apply w-full p-2 rounded border focus:outline-blue-400; }
+.btn { @apply transition duration-150; }
+
+.badge-success { @apply bg-green-500 text-white px-2 py-0.5 rounded; }
+.badge-warning { @apply bg-yellow-500 text-white px-2 py-0.5 rounded; }
+
+::-webkit-scrollbar { width: 8px; background: #eef; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
