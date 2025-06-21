@@ -1,13 +1,11 @@
-import { GoogleOAuthProvider } from "@react-oauth/google";
 import "@/styles/globals.css";
+import Providers from "@/components/Providers";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="id">
       <body>
-        <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}>
-          {children}
-        </GoogleOAuthProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
