@@ -32,18 +32,18 @@ export default function LoginPage() {
     <div className="flex flex-col min-h-screen items-center justify-center bg-gradient-to-b from-white to-blue-100 dark:from-black dark:to-zinc-900">
       <GlassCard className="w-full max-w-md space-y-8">
         <h2 className="text-2xl font-bold text-center mb-4">Login ke FuturaShop</h2>
-        <form className="space-y-4" onSubmit={handleLogin}>
-          <input 
-            type="email" 
-            className="w-full p-3 rounded-lg bg-white/60 dark:bg-zinc-900/70 border outline-blue-400 transition" 
+        <form className="space-y-6" onSubmit={handleLogin}>
+          <input
+            type="email"
+            className="w-full px-4 py-3 rounded-lg bg-white/60 dark:bg-zinc-900/70 border outline-blue-400 transition"
             placeholder="Email" 
             value={email} 
             onChange={e => setEmail(e.target.value)} 
             required 
           />
-          <input 
-            type="password" 
-            className="w-full p-3 rounded-lg bg-white/60 dark:bg-zinc-900/70 border outline-blue-400 transition" 
+          <input
+            type="password"
+            className="w-full px-4 py-3 rounded-lg bg-white/60 dark:bg-zinc-900/70 border outline-blue-400 transition"
             placeholder="Password" 
             value={password} 
             onChange={e => setPassword(e.target.value)} 
