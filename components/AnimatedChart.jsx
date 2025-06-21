@@ -1,3 +1,4 @@
+"use client";
 import { ResponsiveContainer, LineChart, Line, Tooltip, XAxis, YAxis } from "recharts";
 export default function AnimatedChart({ data }) {
   return (

@@ -1,3 +1,4 @@
+"use client";
 import { Funnel, FunnelChart, Tooltip, LabelList } from "recharts";
 export default function FunnelChartComp() {
   const data = [
