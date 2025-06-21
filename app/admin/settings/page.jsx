@@ -1,7 +1,10 @@
+"use client";
 import AdminSidebar from "@/components/AdminSidebar";
 import AdminSettingForm from "@/components/AdminSettingForm";
+import useAdminGuard from "@/hooks/useAdminGuard";
 
 export default function AdminSettings() {
+  useAdminGuard();
   return (
     <div className="flex min-h-screen">
       <AdminSidebar />
