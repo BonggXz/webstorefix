@@ -2,6 +2,7 @@
 import { useState } from "react";
 import GlassCard from "@/components/GlassCard";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function RegisterPage() {
   const [form, setForm] = useState({ email: "", password: "", name: "" });
@@ -75,6 +76,12 @@ export default function RegisterPage() {
             {loading ? "Loading..." : "Daftar"}
           </motion.button>
         </form>
+        <Link
+          href="/auth/login"
+          className="block text-center text-sm text-blue-500 dark:text-neon hover:underline"
+        >
+          Sudah punya akun? Login
+        </Link>
       </GlassCard>
     </div>
   );
