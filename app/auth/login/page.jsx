@@ -3,27 +3,28 @@ import { useState } from "react";
 import GlassCard from "@/components/GlassCard";
 import { GoogleLogin } from "@react-oauth/google";
 import { motion } from "framer-motion";
+import { successAlert, errorAlert } from "@/utils/alert";
 
 export default function LoginPage() {
   const [email, setEmail] = useState(""); 
   const [password, setPassword] = useState("");
-  const [err, setErr] = useState(null); 
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async e => {
     e.preventDefault();
-    setLoading(true); setErr(null);
+    setLoading(true);
     try {
-      const res = await fetch("/api/auth/login", { 
+      const res = await fetch("/api/auth/login", {
         method: "POST",
-        headers: { "Content-Type": "application/json" }, 
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })
       });
       const data = await res.json();
       if (!data.status) throw new Error(data.error || "Login gagal");
       localStorage.setItem("token", data.token);
+      await successAlert("Berhasil login");
       window.location.href = "/dashboard";
-    } catch (e) { setErr(e.message); }
+    } catch (e) { errorAlert("Login gagal", e.message); }
     setLoading(false);
   };
 
@@ -48,9 +49,6 @@ export default function LoginPage() {
             onChange={e => setPassword(e.target.value)} 
             required 
           />
-          {err && (
-            <motion.div animate={{ scale: [0.8, 1] }} className="text-sm text-red-500">{err}</motion.div>
-          )}
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -69,16 +67,19 @@ export default function LoginPage() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ credential: credentialResponse.credential })
               })
-              .then(res => res.json())
-              .then(data => {
-                if (data.token) {
-                  localStorage.setItem("token", data.token);
-                  window.location.href = "/dashboard";
-                }
-              })
-              .catch(() => setErr("Login Google gagal"));
+                .then(res => res.json())
+                .then(async data => {
+                  if (data.token) {
+                    localStorage.setItem("token", data.token);
+                    await successAlert("Berhasil login");
+                    window.location.href = "/dashboard";
+                  } else {
+                    throw new Error();
+                  }
+                })
+                .catch(() => errorAlert("Login Google gagal"));
             }}
-            onError={() => setErr("Login Google gagal")}
+            onError={() => errorAlert("Login Google gagal")}
             useOneTap
           />
         </div>

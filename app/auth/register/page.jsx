@@ -2,13 +2,15 @@
 import { useState } from "react";
 import GlassCard from "@/components/GlassCard";
 import { motion } from "framer-motion";
+import { successAlert, errorAlert } from "@/utils/alert";
 
 export default function RegisterPage() {
   const [form, setForm] = useState({ email: "", password: "", name: "" });
-  const [err, setErr] = useState(null), [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleRegister = async e => {
-    e.preventDefault(); setLoading(true); setErr(null);
+    e.preventDefault();
+    setLoading(true);
     try {
       const res = await fetch("/api/auth/register", {
         method: "POST", headers: { "Content-Type": "application/json" },
@@ -26,8 +28,9 @@ export default function RegisterPage() {
       if (data.token) {
         localStorage.setItem("token", data.token);
       }
+      await successAlert("Registrasi berhasil");
       window.location.href = "/dashboard";
-    } catch (e) { setErr(e.message); }
+    } catch (e) { errorAlert("Register gagal", e.message); }
     setLoading(false);
   };
 
@@ -60,11 +63,6 @@ export default function RegisterPage() {
             onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
             required
           />
-          {err && (
-            <motion.div animate={{ scale: [0.8, 1] }} className="text-sm text-red-500">
-              {err}
-            </motion.div>
-          )}
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}

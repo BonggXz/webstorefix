@@ -1,11 +1,13 @@
 "use client";
 import { useEffect } from "react";
+import { errorAlert } from "@/utils/alert";
 export default function LiveChatWidget() {
   useEffect(() => {
     const crispId = process.env.NEXT_PUBLIC_CRISP_ID;
     if (!crispId) {
-      console.warn(
-        "Crisp chat disabled: NEXT_PUBLIC_CRISP_ID environment variable not set."
+      errorAlert(
+        "Crisp chat disabled",
+        "NEXT_PUBLIC_CRISP_ID environment variable not set."
       );
       return;
     }
