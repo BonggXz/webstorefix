@@ -11,17 +11,16 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async e => {
-    e.preventDefault(); 
+    e.preventDefault();
     setLoading(true); setErr(null);
     try {
       const res = await fetch("/api/auth/login", { 
-        method: "POST", 
+        method: "POST",
         headers: { "Content-Type": "application/json" }, 
         body: JSON.stringify({ email, password })
       });
       const data = await res.json();
       if (!data.status) throw new Error(data.error || "Login gagal");
-      // Simpan JWT ke localStorage/cookie
       localStorage.setItem("token", data.token);
       window.location.href = "/dashboard";
     } catch (e) { setErr(e.message); }
@@ -65,7 +64,6 @@ export default function LoginPage() {
         <div className="mt-6 flex flex-col gap-2">
           <GoogleLogin
             onSuccess={credentialResponse => {
-              // Kirim credentialResponse.credential ke backend endpoint /api/auth/google
               fetch("/api/auth/google", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
